@@ -1,21 +1,14 @@
-import sys
 import requests
 import os
-import re
 from datetime import date
 
-from PyQt6.QtCore import Qt
-from PyQt6.QtGui import QAction, QPalette, QColor
-from PyQt6.QtWidgets import QApplication, QLabel, QMainWindow, QMenu, QWidget, QVBoxLayout, QHBoxLayout, QGridLayout, QLineEdit, QPushButton, QTextBrowser
+from PyQt6.QtWidgets import QApplication, QLabel, QMainWindow, QWidget, QVBoxLayout, QGridLayout, QLineEdit, QPushButton, QTextBrowser
 
 
 class MainWindow(QMainWindow):
 
     def __init__(self):
         super(MainWindow, self).__init__()
-        self.regex_pattern = re.compile(r'^[a-zA-Z]+$')
-
-
         self.setWindowTitle("osu! player stats")
 
         layout_main = QVBoxLayout()
@@ -95,7 +88,7 @@ def format_json(json):
            f"<p><b>Количество игр:</b> {json['statistics']['play_count']} </p>"
     return text
 
-app = QApplication(sys.argv)
+app = QApplication([])
 
 window = MainWindow()
 window.show()
